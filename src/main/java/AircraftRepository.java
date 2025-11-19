@@ -26,6 +26,7 @@ public class AircraftRepository {
                 aircraft.add(rs.getInt("id")+": "+rs.getString("model"));
             }
         }
+        return aircraft;
     }
 }
 
