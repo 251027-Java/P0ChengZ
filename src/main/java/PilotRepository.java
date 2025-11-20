@@ -51,18 +51,6 @@ public class PilotRepository {
         }
     }
 
-    // Utility: get pilot ID by name (useful in tests)
-    public int getPilotIdByName(String name) throws SQLException {
-        String sql = "SELECT id FROM pilot WHERE name = ?";
-        try (PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, name);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return rs.getInt("id");
-            }
-        }return -1;
-    }
-
     // Get Pilot with Aircraft assignments
     public List<String> getPilotAircraftAssignments() throws SQLException {
         List<String> results = new ArrayList<>();
